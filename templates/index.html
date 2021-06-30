@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Simple API page</title>
+</head>
+<body>
+
+<div class="my-3 p-3 bg-white rounded shadow-sm col-lg-8 m-auto">
+    <h4 class="border-bottom border-gray pb-2 mb-0">Тестовое задание КОМТЕК</h4>
+    <div class="media text-muted pt-3">
+        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <strong class="text-gray-dark">Получение списка справочников</strong>
+          <a href="{% url 'get_all_catalogs' %}" class="btn-info p-2">Перейти</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="media text-muted pt-3">
+        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <strong class="text-gray-dark">получение списка справочников, актуальных на указанную дату</strong>
+          <a href="{% url 'get_actual_catalogs' actualDate='2021-06-26' %}" class="btn-info p-2">Перейти</a>
+        </div>
+        <span class="d-block">Для работы ссылки необходимо в браузерной строке поменять дату на нужную, по умолчанию
+        система ставит 2021-06-26
+        </span>
+      </div>
+    </div>
+
+    <div class="media text-muted pt-3">
+        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <strong class="text-gray-dark">Пполучение элементов заданного справочника текущей версии</strong>
+          <a href="{% url 'get_Elements_actual_catalog' short_name='Ctg1' %}" class="btn-info p-2">Перейти</a>
+        </div>
+        <span class="d-block">Вам необходимо в адресной строке указать короткое имя справочника, по умолчанию будет идти Ctg1</span>
+      </div>
+    </div>
+
+    <div class="media text-muted pt-3">
+        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <strong class="text-gray-dark">валидация элементов заданного справочника текущей версии</strong>
+          <a href="{% url 'validation_Elements_actual_version_catalog' short_name='Ctg1' %}" class="btn-info p-2">Перейти</a>
+        </div>
+        <span class="d-block">Данная ссылка перевед вас на страницу,
+            где необходимо создать элемент справочкника.
+            После чего она пройдет валидацию</span>
+      </div>
+    </div>
+
+    <div class="media text-muted pt-3">
+        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <strong class="text-gray-dark">получение элементов заданного справочника указанной версии</strong>
+          <a href="{% url 'get_Elements_of_current_version_catalog' version='Version 1.0' %}" class="btn-info p-2">Перейти</a>
+        </div>
+        <span class="d-block">Необходимо указать версию справочника, по умолчанию будет идти Version 1.0</span>
+      </div>
+    </div>
+
+    <div class="media text-muted pt-3">
+        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <div class="d-flex justify-content-between align-items-center w-100">
+          <strong class="text-gray-dark">валидация элемента заданного справочника по указанной версии</strong>
+          <a href="{% url 'validation_Elements_current_version_version_catalog' version='Version 1.0' %}" class="btn-info p-2">Перейти</a>
+        </div>
+        <span class="d-block">Необходимо указать версию справочника, по умолчанию будет идти Version 1.0</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
